@@ -104,6 +104,10 @@ AFRAME.registerComponent('step-ctrl', {
             if (stepIdx === 0) { // 안녕하세요
                 // rabbit.removeAttribute('animation-mixer');
 
+                if(isFirstTime){
+                    isFirstTime = false; 
+                }
+
                 taewon.setAttribute('animation__position', { property: 'position', to: { x: -0.35, y: -0.3, z: 0 }, dur: 4000, easing: 'easeInOutCubic', loop: false })
 
                 taewon.setAttribute('animation-mixer', {
