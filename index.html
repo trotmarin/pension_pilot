@@ -1,21 +1,5 @@
 <html>
 
-<!-- 
-  [ CC Attrubute ]
-
-  Model Information:
-* title:	Grass Lawn
-* source:	https://sketchfab.com/3d-models/grass-lawn-7b7ef2ff56e041d1bcc2b330ea8b1f19
-* author:	pooiloui2 (https://sketchfab.com/pooiloui2)
- 
-Model Information:
-* title:	Low Poly Carrot
-* source:	https://sketchfab.com/3d-models/low-poly-carrot-31df366e091a4e64b9b0cfc1afc0145d
-* author:	thepianomonster (https://sketchfab.com/thepianomonster)
-
-
--->
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,23 +17,8 @@ Model Information:
 
   <!--  -->
   <link rel="stylesheet" type="text/css" href="./src/subtitle.css">
-  <!-- <script type='text/javascript' src='./src/step-ctrl.js'></script> -->
-
-  <script>
-    AFRAME.registerComponent('cloak', {
-      init: function () {
-        let geometry = new THREE.BoxGeometry(1, 1, 1)
-        //  geometry.faces.splice(4, 2)
-        let material = new THREE.MeshBasicMaterial({
-          colorWrite: false
-        })
-        let mesh = new THREE.Mesh(geometry, material)
-        mesh.scale.set(1.1, 1.1, 1.1)
-        this.el.object3D.add(mesh)
-      }
-    })
-  </script>
-
+  <script type='text/javascript' src='./src/step-ctrl.js'></script>
+ 
   <style>
     body {
       margin: 0;
@@ -64,13 +33,6 @@ Model Information:
    
   </style>
 </head>
-
-<!--
-  [ Note ]
-  physicallyCorrectLights    
-  showStats: true; 
-
--->
 
 <body>
   <div class="example-container">
@@ -87,27 +49,18 @@ Model Information:
       >
         <a-assets>
           <!-- <img id="tom" src=" https://stemkoski.github.io/AR-Examples/images/tiles.jpg"> -->
-
-          <a-asset-item id="treeModel" src="./assets/models/tree1.glb"></a-asset-item>
-          <a-mixin id="tree" position="0 3 0"
-            animation="property: object3D.position.y; to: 0; dur: 800; easing: easeOutCubic" gltf-model="#treeModel"
-            scale="2.5 2.5 2.5"></a-mixin>
-
-
-
+          <a-asset-item id="taewonModel" src="./assets/models/taewon.glb"></a-asset-item>
         </a-assets>
-
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
         <a-entity id="example-target" mindar-image-target="targetIndex: 0">
-
           <!-- Debug Plane -->
-          
-          <a-plane color="blue" opaciy="0.5" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
-       
-          <a-asset-item id="kisung" src="./assets/models/taewon.glb"></a-asset-item>
-          <a-entity gltf-model="#kisung" scale="0.1 0.1 0.1" rotation="90 0 0" position="0 0 0"></a-entity>
-
+          <!-- <a-plane color="blue" opaciy="0.5" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane> -->
+      
+          <a-gltf-model id="taewon" src="#taewonModel" position="-0.35 0.25 0" scale="0.2 0.2 0.2" rotation="30 0 0"
+          animation-mixer="clip: idle; loop: repeat; crossFadeDuration: 0.4; clampWhenFinished : true; startAt: 0"></a-gltf-model>
+      </a-gltf-model>
+      
+         
           <!-- <a-entity color="blue" geometry="primitive: plane" position="0 0 0" height="1" width="1" rotation="0 0 0"
             material="opacity: 1; transparent: false">
           </a-entity> -->
@@ -124,14 +77,14 @@ Model Information:
       -1px -1px 0 #000,
       1px -1px 0 #000,
       -1px 1px 0 #000,
-      1px 1px 0 #000;">실제 이미지를 찾아주세요
+      1px 1px 0 #000;">상품설명서를 찾아주세요
       </h2>
     <h3></h3>
-    <img width="65%" height="auto" src="./assets/images/watermarktest.png" style="opacity : 0.7; pointer-events: none">
+    <img width="65%" height="auto" src="./assets/images/target-01.png" style="opacity : 0.7; pointer-events: none">
   </div>
 
   <div id='subtitleBtn' class='subtitle'>
-    <div id="sub">「갓생살기 with 펀드」</div>
+    <div id="sub">안녕하세요</div>
   </div>
 
   <!-- <div id="click-button" class="playBtn">
