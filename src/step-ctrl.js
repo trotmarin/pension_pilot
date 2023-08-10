@@ -85,7 +85,7 @@ AFRAME.registerComponent('step-ctrl', {
 
             if (stepIdx > 0 && stepIdx < 9) {
                 soundTTS = new window.Howl({
-                    src: (`./assets/audios/tts_0${stepIdx - 1}.mp3`),
+                    src: (`./assets/audios/ttsN_0${stepIdx - 1}.mp3`),
                 })
                 soundTTS.play()
             }
