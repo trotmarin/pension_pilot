@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'KBFGDisplayM';
+  src: url("../assets/fonts/KBFGDisplayM.woff2") format("woff2"),
+    url("../assets/fonts/opensans-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{font-family:'KB폰트', 'KBfont', KBFGDisplayM}
+
+.subtitle {
+    position: absolute;
+  
+    width: 85%;
+    height: auto;
+    
+    /* 중앙정렬 */
+    left : 50%;
+    transform: translate(-50%);
+  
+    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+    background-color: rgb(255, 188, 80);
+    /* border: 0.1em solid white; */
+    border-radius: 30px;
+    bottom: 3%;
+  
+    color: rgb(96, 88, 76);
+    
+    font-size: 160%;
+    font-weight: bold;
+    text-align: center;
+  
+    display: flex;
+    align-items:center; 
+    justify-content: center;
+    z-index: 20;  
+  }
+  
+
+  .playBtn {
+    position: absolute;
+  
+    /* width: 85%; */
+    /* height: auto; */
+    
+    /* 중앙정렬 */
+    bottom: 3%;
+    right : 10%;
+    transform: translate(-50%);
+  
+    /* padding: 15px; */
+    /* padding-top: 5px; */
+    /* padding-bottom: 5px; */
+    
+    /* background-color: rgb(255, 188, 80); */
+    border: 0.1em solid white;
+    border-radius: 30px;
+    /* bottom: 2%; */
+  
+    /* color: rgb(96, 88, 76); */
+    
+    /* font-size: 160%;
+    font-weight: bold;
+    text-align: center;
+  
+    display: flex;
+    align-items:center; 
+    justify-content: center; */
+    z-index: 21;  
+  }
+
+  .hand {
+    position: absolute;
+  
+    /* width: 85%; */
+    /* height: auto; */
+    
+    /* 중앙정렬 */
+    bottom: 1%;
+    right : 3%;
+    transform: translate(-50%);
+  
+    /* padding: 15px; */
+    /* padding-top: 5px; */
+    /* padding-bottom: 5px; */
+    
+    /* background-color: rgb(255, 188, 80); */
+    /* border: 0.1em solid white; */
+    /* border-radius: 30px; */
+    /* bottom: 2%; */
+  
+    /* color: rgb(96, 88, 76); */
+    
+    /* font-size: 160%;
+    font-weight: bold;
+    text-align: center;
+  
+    display: flex;
+    align-items:center; 
+    justify-content: center; */
+    z-index: 22;  
+  }
+  
+
+  /* .subtitle:active {
+    background-color: white;
+    color: rgb(96, 100, 76);
+  } */
+  
+  .experience {
+    position: absolute;
+  
+    width: 85%;
+    height: auto;
+    
+    /* 중앙정렬 */
+    top : 5%;
+    left : 50%;
+    transform: translate(-50%);
+  
+    /* padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px; */
+    
+    /* background-color: rgb(255, 188, 80);
+    border: 0.1em solid white;
+    border-radius: 30px;
+    bottom: 2%; */
+  
+    color: rgb(255, 0, 0);
+    
+    font-size: 100%;
+    font-weight: bold;
+    text-align: center;
+  
+    display: flex;
+    align-items:center; 
+    justify-content: center;
+    z-index: 20;  
+  }
+  
+  .covering-panel {
+    z-index: 10; 
+    
+    /* background: rgba(0,0,0, 0.4); */
+    /* height: 100vh; */
+    position: fixed;
+    top: 2%;
+    width: 100%;
+    height: 100%;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start; 
+    pointer-events: none
+  }
