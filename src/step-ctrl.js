@@ -35,7 +35,7 @@ AFRAME.registerComponent('step-ctrl', {
 
         const clickHand = document.getElementById('click-hand')
         clickHand.style.display = 'none'
-        
+
         const sceneEl = document.querySelector('a-scene');
         const exampleTarget = document.querySelector('#example-target');
         // const arSystem = sceneEl.systems["mindar-image-system"];
@@ -64,7 +64,6 @@ AFRAME.registerComponent('step-ctrl', {
                 soundMain.play()
             }
         })
-
 
         // idle, walk, wave, break, bow
 
@@ -129,7 +128,7 @@ AFRAME.registerComponent('step-ctrl', {
 
                     taewon.setAttribute('animation-mixer', {
                         clip: 'bow',
-                        loop: 'once',
+                        loop: 'repeat',
                         startAt: 0,
                         timeScale: 1,
                         crossFadeDuration: 0.4
@@ -145,7 +144,6 @@ AFRAME.registerComponent('step-ctrl', {
                     timeScale: 1,
                     crossFadeDuration: 0.4
                 })
-
 
                 // rabbit.setAttribute('animation-mixer', {clip: 'Joy', loop: 'repeat', repetitions: 3, crossFadeDuration: 0.4 })
                 // isNeedRabbitIdle = true;
@@ -173,8 +171,7 @@ AFRAME.registerComponent('step-ctrl', {
                         timeScale: 1,
                         crossFadeDuration: 0.4
                     })
-
-                }, 2000)
+                }, 3000)
             
                 sequnceInterval = setTimeout(() => {
                     clickHand.style.display = 'block'
@@ -192,7 +189,7 @@ AFRAME.registerComponent('step-ctrl', {
             } else if (stepIdx === 1) {
                 setTimeout(() => {
                     userClickHandler();
-                  }, 20000)
+                  }, 18000)
             }          
             else if (stepIdx === 3) {
                 stepIdx = -1
