@@ -31,9 +31,11 @@ AFRAME.registerComponent('step-ctrl', {
         
         const subtitle = document.getElementById('subtitleBtn')
         subtitle.innerText = '안녕하세요'
+        subtitle.style.display = 'none';
 
         const clickHand = document.getElementById('click-hand')
-
+        clickHand.style.display = 'none'
+        
         const sceneEl = document.querySelector('a-scene');
         const exampleTarget = document.querySelector('#example-target');
         // const arSystem = sceneEl.systems["mindar-image-system"];
@@ -85,7 +87,7 @@ AFRAME.registerComponent('step-ctrl', {
 
             if (stepIdx > 0 && stepIdx < 9) {
                 soundTTS = new window.Howl({
-                    src: (`./assets/audios/ttsN_0${stepIdx - 1}.mp3`),
+                    src: (`./assets/audios/ttsN_0${stepIdx}.mp3`),
                 })
                 soundTTS.play()
             }
@@ -119,17 +121,19 @@ AFRAME.registerComponent('step-ctrl', {
                 })
 
                 animInterval = setTimeout(() => {
+
+                    soundTTS = new window.Howl({
+                        src: (`./assets/audios/ttsN_0${stepIdx}.mp3`),
+                    })
+                    soundTTS.play()
+
                     taewon.setAttribute('animation-mixer', {
                         clip: 'bow',
                         loop: 'once',
                         startAt: 0,
                         timeScale: 1,
                         crossFadeDuration: 0.4
-                    })
-                    
-                    animInterval = setTimeout(() => {
-                      userClickHandler();
-                    }, 2000)
+                    })              
                 }, 4000)
                             
             } else if (stepIdx === 1) { // 사전운용지정제도란?
@@ -141,16 +145,13 @@ AFRAME.registerComponent('step-ctrl', {
                     timeScale: 1,
                     crossFadeDuration: 0.4
                 })
-               
-                // subtitle.innerText = '디버그'
 
-                animInterval = setTimeout(() => {
-                    userClickHandler();
-                }, 10000)
 
                 // rabbit.setAttribute('animation-mixer', {clip: 'Joy', loop: 'repeat', repetitions: 3, crossFadeDuration: 0.4 })
                 // isNeedRabbitIdle = true;
             } else if (stepIdx === 2) { // 설명이 이해되셨나요? 
+                subtitle.style.display = 'block'
+                
                 sequnceInterval = setTimeout(() => {
                     clickHand.style.display = 'block'
                 }, 5000)
@@ -183,7 +184,17 @@ AFRAME.registerComponent('step-ctrl', {
             //     clickHand.style.display = 'block'
             // }, 10000)
 
-            if (stepIdx === 3) {
+
+            if (stepIdx === 0) {
+                setTimeout(() => {
+                    userClickHandler();
+                  }, 8000)
+            } else if (stepIdx === 1) {
+                setTimeout(() => {
+                    userClickHandler();
+                  }, 20000)
+            }          
+            else if (stepIdx === 3) {
                 stepIdx = -1
             }
         }
@@ -206,6 +217,7 @@ AFRAME.registerComponent('step-ctrl', {
         exampleTarget.addEventListener("targetFound", event => {
             console.log("target found");
             guideDiv.style.display = 'none';
+            
             if (isFirstTime) {
                 interval = setTimeout(() => {
                     userClickHandler()
