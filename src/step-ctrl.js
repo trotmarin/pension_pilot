@@ -36,6 +36,8 @@ AFRAME.registerComponent('step-ctrl', {
         const clickHand = document.getElementById('click-hand')
         clickHand.style.display = 'none'
 
+        const tooltip = document.getElementById('tooltip')
+
         const sceneEl = document.querySelector('a-scene');
         const exampleTarget = document.querySelector('#example-target');
         // const arSystem = sceneEl.systems["mindar-image-system"];
@@ -108,7 +110,9 @@ AFRAME.registerComponent('step-ctrl', {
                 if(isFirstTime){
                     isFirstTime = false; 
                 }
-
+                
+                taewon.setAttribute('animation__scale', {property: 'scale', to: {x: 0.2, y: 0.2, z: 0.2}, dur: 1000, easing: 'easeInCubic', loop: false})
+                                
                 taewon.setAttribute('animation__position', { property: 'position', to: { x: -0.35, y: -0.3, z: 0 }, dur: 4000, easing: 'easeInOutCubic', loop: false })
 
                 taewon.setAttribute('animation-mixer', {
@@ -120,30 +124,31 @@ AFRAME.registerComponent('step-ctrl', {
                 })
 
                 animInterval = setTimeout(() => {
-
                     soundTTS = new window.Howl({
                         src: (`./assets/audios/ttsN_0${stepIdx}.mp3`),
                     })
                     soundTTS.play()
 
                     taewon.setAttribute('animation-mixer', {
-                        clip: 'bow',
-                        loop: 'repeat',
+                        clip: 'wave',
+                        loop: 'once',
                         startAt: 0,
                         timeScale: 1,
                         crossFadeDuration: 0.4
                     })              
-                }, 4000)
-                            
+                }, 4000)                            
             } else if (stepIdx === 1) { // 사전운용지정제도란?
                
                 taewon.setAttribute('animation-mixer', {
-                    clip: 'wave',
+                    clip: 'idle',
                     loop: 'repeat',
                     startAt: 0,
                     timeScale: 1,
                     crossFadeDuration: 0.4
                 })
+
+                // tooltip.setAttribute('opacity', 1);
+                tooltip.setAttribute('animation__scale', {property: 'scale', to: {x: 1, y: 1, z: 1}, dur: 1000, easing: 'easeInCubic', loop: false})
 
                 // rabbit.setAttribute('animation-mixer', {clip: 'Joy', loop: 'repeat', repetitions: 3, crossFadeDuration: 0.4 })
                 // isNeedRabbitIdle = true;
@@ -189,10 +194,10 @@ AFRAME.registerComponent('step-ctrl', {
             } else if (stepIdx === 1) {
                 setTimeout(() => {
                     userClickHandler();
-                  }, 18000)
+                  }, 15000)
             }          
             else if (stepIdx === 3) {
-                stepIdx = -1
+                stepIdx = 0
             }
         }
    

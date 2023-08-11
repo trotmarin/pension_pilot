@@ -12,9 +12,6 @@
  
   <script src="./src/mindar-image-aframe-1280.prod.js" type="module"></script> <!-- mind-ar -->
 
-  <!-- tooltip -->
-  <!-- <script src="https://unpkg.com/aframe-slice9-component/dist/aframe-slice9-component.min.js"></script> -->
-
   <!--  -->
   <link rel="stylesheet" type="text/css" href="./src/subtitle.css">
   <script type='text/javascript' src='./src/step-ctrl.js'></script>
@@ -47,16 +44,27 @@
       gltf-model="basisTranscoderPath:https://cdn.jsdelivr.net/npm/super-three/examples/js/libs/basis/;" 
       step-ctrl
       >
+
         <a-assets>
           <!-- <img id="tom" src=" https://stemkoski.github.io/AR-Examples/images/tiles.jpg"> -->
           <a-asset-item id="taewonModel" src="./assets/models/taewon.glb"></a-asset-item>
+          <img id="tooltipImage" src="./assets/images/tooltip-resize.png">
+          <img id="guide01Image" src="./assets/images/guide-01.png">
+          <img id="guide02Image" src="./assets/images/guide-02.png">
         </a-assets>
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+              
         <a-entity id="example-target" mindar-image-target="targetIndex: 0">
           <!-- Debug Plane -->
           <!-- <a-plane color="blue" opaciy="0.5" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane> -->
       
-          <a-gltf-model id="taewon" src="#taewonModel" position="-0.35 0.25 0" scale="0.2 0.2 0.2" rotation="30 0 0"
+          <a-entity id="tooltip" scale="0 0 0">
+            <a-image  src="#tooltipImage" position="0 -0.35 0" width="1" height="0.09" color="yellow"></a-image>
+            <a-image  src="#guide01Image" position="-0.1 -0.1 0.15" width="0.3" height="0.3" rotation="30 0 0"></a-image>
+            <a-image  src="#guide02Image" position="0.2 -0.1 0.15"  width="0.3" height="0.3" rotation="30 0 0"></a-image>
+        </a-entity>
+
+          <a-gltf-model id="taewon" src="#taewonModel" position="-0.35 0.25 0" scale="0 0 0" rotation="30 0 0"
           animation-mixer="clip: idle; loop: repeat; crossFadeDuration: 0.4; clampWhenFinished : true; startAt: 0"></a-gltf-model>
       </a-gltf-model>
       
